@@ -1,0 +1,32 @@
+{
+  "name": "slot-wrapper",
+  "version": "1.0.0",
+  "description": "Slotmachine Wrapper by Wundermachine.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "npx webpack serve --config webpack.config.test.js --progress",
+    "build-dist": "npx webpack --config webpack.config.dist.js",
+    "build-dev": "npx webpack --config webpack.config.dev.js",
+    "patch": "(npm version patch --no-git-tag-version) & node tools/updateVersion.js",
+    "minor": "(npm version minor --no-git-tag-version) & node tools/updateVersion.js",
+    "major": "(npm version major --no-git-tag-version) & node tools/updateVersion.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.m2prz.net/wundermachine/slot-wrapper.git"
+  },
+  "keywords": [
+    "Wrapper"
+  ],
+  "author": "Philipp Biermann",
+  "license": "ISC",
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "ts-loader": "^9.4.2",
+    "typescript": "^5.0.4",
+    "webpack": "^5.81.0",
+    "webpack-cli": "^5.0.2",
+    "webpack-dev-server": "^4.13.3"
+  }
+}

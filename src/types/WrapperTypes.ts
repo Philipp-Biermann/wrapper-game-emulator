@@ -1,0 +1,1 @@
+export type TWrapperFunction = ( event: string, data?: any ) => void;
