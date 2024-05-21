@@ -1,0 +1,42 @@
+.main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    top: 20px;
+    width: 300px;
+    height: 500px;
+    background-color: lightgray;
+    z-index: 9999;
+}
+
+.eventBtn {
+    width: 80%;
+    height: 40px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.eventMain {
+    display: flex;
+}
+
+.eventSelector {
+    height: 2em;
+    width: 12em;
+    text-align: center;
+    align-self: center;
+}
+
+.finishSpinDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%
+}
+
+.inputEventData {
+    width: 80%;
+    height: 20%;
+}
