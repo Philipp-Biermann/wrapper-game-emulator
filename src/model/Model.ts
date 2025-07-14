@@ -5,7 +5,8 @@ export class Model
     protected static data: TModel = {
         initResponse: null,
         gameDiv: null,
-        autoFinishSpin: false
+        autoFinishSpin: false,
+        autoResetGame: false
     };
 
     static update( obj: Partial<typeof this.data> ): void

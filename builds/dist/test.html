@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wrapper-Game-Emulator</title>
 
-    <!-- <link rel="stylesheet" href="./test.css"> -->
+    <link rel="stylesheet" href="./test.css">
 </head>
 
 <body style="width: 100%; height: 100%; overflow: hidden; margin: 0; padding: 0;">
@@ -15,31 +15,47 @@
 
     <script src="wmw-game-emulator.js?v=0.0.0"></script>
 
-    <!-- <div class="main">
-        <div></div>
-
-        <div class="finishSpinDiv">
+    <div class="main">
+        <div class="finishSpinContainer">
             <button id="WGE_FINISH_SPIN_BTN" class="eventBtn">Finish Spin</button>
-            <div style="display: flex;">
-                <h4>Autofinish:</h4>
-                <input id="WGE_FINISH_SPIN_CHECKBOX" type="checkbox">
+            <div class="autoCheckboxContainer">
+                <div class="finishSpinCheckboxContainer">
+                    <h4>Auto Finish:</h4>
+                    <input id="WGE_AUTO_FINISH_CHECKBOX" type="checkbox">
+                </div>
+                <div class="finishSpinCheckboxContainer">
+                    <h4>Auto Reset:</h4>
+                    <input id="WGE_AUTO_RESET_CHECKBOX" type="checkbox">
+                </div>
             </div>
         </div>
 
-        <button class="eventBtn">Close</button>
+        <div class="eventInputContainer">
+            <div class="eventSelectContainer">
+                <div class="eventSelectDescription">Game-Events:</div>
+                <select id="WGE_EVENT_SELECTOR" class="eventSelector" name="events">
+                </select>
+            </div>
 
-        <div class="eventMain">
-            <h4> <label for="events">GameEvents:</label> </h4>
-            <select id="WGE_EVENT_SELECTOR" class="eventSelector" name="events">
-                <option value="1">Finish Spin</option>
-                <option value="1">Finish Play</option>
-            </select>
+            <textarea id="WGE_INPUTAREA" class="eventInputBox" spellcheck="false" rows="6" cols="50"></textarea>
+
+            <button id="WGE_SEND_BTN" class="eventBtn">Send Event</button>
         </div>
 
-        <input id="WGE_INPUT_DATA" type="text" class="inputEventData" name="eventData">
+        <div class="eventOutputContainer">
+            <div class="eventSelectContainer">
+                <div class="eventSelectDescription">Last Events:</div>
+                <select id="WGE_LAST_EVENTS_SELECTOR" class="eventSelector" name="events"></select>
+            </div>
 
-        <button id="WGE_SEND_BTN" class="eventBtn">Send Event</button>
-    </div> -->
+            <pre class="eventOutputBox" id="WGE_LAST_EVENTDATA"></pre>
+
+            <button id="WGE_CLEAR_LAST_EVENTS" class="eventBtn">Clear Events</button>
+            <div></div>
+        </div>
+
+
+    </div>
 </body>
 
 </html>

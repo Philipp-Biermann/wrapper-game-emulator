@@ -24,6 +24,7 @@ export class Main
 
     private constructor()
     {
+        ( window as any ).WGE = this; // Expose the instance globally for debugging purposes
     }
 
     public async init(): Promise<void>
@@ -81,8 +82,6 @@ export class Main
                     this._wmw( GameEvents.FINISH_SPIN );
                 }
                 break;
-            case WrapperEvents.FAILED_SPIN:
-                break;
             case WrapperEvents.SEND_MONEY_FORMATTER:
                 break;
             case WrapperEvents.EVENT_TRIGGERED:
@@ -90,8 +89,6 @@ export class Main
             case WrapperEvents.EVENT_TRIGGERED_FAILED:
                 break;
             case WrapperEvents.EVENT_TRIGGERED_SPIN:
-                break;
-            case WrapperEvents.EVENT_TRIGGERED_WEBSOCKET:
                 break;
             case WrapperEvents.OPEN_HISTORY:
                 break;
@@ -103,6 +100,27 @@ export class Main
                 break;
             case WrapperEvents.END_GAMBLE:
                 break;
+            case WrapperEvents.START_PLAY:
+            case WrapperEvents.RESET_GAME:
+                if ( Model.getKey<boolean>( 'autoResetGame' ) )
+                {
+                    this._wmw( GameEvents.GAME_RESET );
+                }
+                else
+                {
+                    setTimeout( () =>
+                    {
+                        this._wmw( GameEvents.GAME_RESET );
+                    }, 10000 );
+                }
+                break;
+            case WrapperEvents.BONUS_BUY_OPENED:
+            case WrapperEvents.PAUSE_GAME:
+            case WrapperEvents.UNPAUSE_GAME:
+            case WrapperEvents.WEBSOCKET_ACTIVATED:
+            case WrapperEvents.WEBSOCKET_OPEN_HISTORY:
+            case WrapperEvents.WEBSOCKET_OPEN_PLAYERS:
+            case WrapperEvents.WEBSOCKET_SHOW_REALITYCHECK:
         }
     }
 
@@ -112,7 +130,8 @@ export class Main
         addHtml();
         setupGameEventSelector();
 
-        document.getElementById( 'WGE_FINISH_SPIN_CHECKBOX' ).addEventListener( 'click', checkTextBox );
+        document.getElementById( 'WGE_AUTO_FINISH_CHECKBOX' ).addEventListener( 'click', checkTextBox );
+        document.getElementById( 'WGE_AUTO_RESET_CHECKBOX' ).addEventListener( 'click', checkTextBox );
         document.getElementById( 'WGE_FINISH_SPIN_BTN' ).addEventListener( 'click', this._wmw.bind( this, GameEvents.FINISH_SPIN ) );
         document.getElementById( 'WGE_SEND_BTN' ).addEventListener( 'click', this.sendEvent.bind( this ) );
 

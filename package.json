@@ -30,6 +30,7 @@
     "webpack-dev-server": "^4.13.3"
   },
   "dependencies": {
+    "@wundermachine/wrapper-game-communicator": "^1.0.14",
     "json5": "^2.2.3"
   }
 }
